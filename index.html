@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .food,
+        .body,
+        .head {
+            width: 30px;
+            height: 30px;
+            background-repeat: no-repeat;
+            background-size: 30px 30px;
+            position: absolute;
+        }
+
+        .map {
+            width: 900px;
+            height: 600px;
+            border: 2px solid pink;
+            margin: 30px auto;
+            background-image: url(/imgs/bg.png);
+            background-size: 30px 30px;
+            position: relative;
+        }
+
+        .food {
+            background-image: url(/imgs/food.png);
+
+        }
+
+        .head {
+            background-image: url(/imgs/head.png);
+
+        }
+
+        .body {
+            background-image: url(/imgs/body.png);
+
+        }
+    </style>
+</head>
+
+<body>
+    <button id="start">开始</button>
+    <button id="pause">暂停</button>
+    <button id="restart">重来</button>
+    <input type="text" value="0" id="score">
+    <div class="map" id="map">
+        
+    </div>
+
+
+
+
+
+
+    <script src="/js/utils.js"></script>
+    <script src="/js/food.js"></script>
+    <script src="/js/snake.js"></script>
+    <script src="/js/game.js"></script>
+    <script>
+        //如何出现食物
+        // const f = new Food('#map')
+        //如何出现蛇
+        // const s = new Snake('#map')
+        //如何出现规则
+        const g = new Game('#map', '#score')
+        //如何开始游戏
+        const startBtn = document.querySelector('#start')
+        const pauseBtn = document.querySelector('#pause')
+        const restartBtn = document.querySelector('#restart')
+        startBtn.onclick = function () {
+            g.start()
+            
+        }
+        pauseBtn.onclick = function () {
+            g.pause()
+        }
+        restartBtn.onclick = function () {
+            g.restart()
+        }
+    </script>
+    
+</body>
+
+</html>
